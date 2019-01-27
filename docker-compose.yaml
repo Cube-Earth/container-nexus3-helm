@@ -1,0 +1,15 @@
+version: '3'
+services:
+  main:
+    build:
+        context: .
+        args:
+            - http_proxy
+            - https_proxy
+            - no_proxy
+    image: cubeearth/nexus3-helm
+    ports:
+    - 8081:8081
+    - 5000:5000
+    volumes:
+    - ./nexus-data:/nexus-data:rw
